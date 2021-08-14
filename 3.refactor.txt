@@ -1,0 +1,10 @@
+func findFirstStringInBracket(str string) string {
+	if len(str) > 0 {
+		indexFirstBracket := strings.Index(str,"(")
+		indexClosingBracket := strings.Index(str,")")`
+		if indexFirstBracket >= 0 && indexClosingBracket > indexFirstBracket {
+			return str[indexFirstBracket+1:indexClosingBracket]
+		}
+	}
+	return ""
+}

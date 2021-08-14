@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "septanto.github.com/omdb";
+
+package omdb;
+
+service OmdbService {
+  rpc Search (SearchRequest) returns (SeachReply) {}
+  rpc Detail (DetailRequest) returns (DetailReply) {}
+}
+
+message SearchRequest {
+  string searchword = 1;
+  string pagination = 2;
+}
+
+message SeachReply {
+  string message = 1;
+}
+
+message DetailRequest {
+    string imdbid = 1;
+}
+
+message DetailReply {
+    string message = 1;
+}

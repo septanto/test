@@ -1,0 +1,16 @@
+func groupAnagram(strArr []string) [][]string {
+	var strArr2 [][]string
+	maps := make(map[string][]string)
+	for _, val := range strArr {
+		bytes := []byte(val)
+		sort.SliceStable(bytes, func(i, j int) bool {
+			return bytes[i] < bytes[j]
+		})
+		str := string(bytes)
+		maps[str] = append(maps[str], val)
+	}
+	for val := range maps {
+		strArr2 = append(strArr2, maps[val])
+	}
+	return strArr2
+}
